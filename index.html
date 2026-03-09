@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Snake</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <canvas id="bgCanvas"></canvas>
+
+    <div class="phone-play-area">
+
+        <!-- ÉCRAN 1 : ACCUEIL -->
+        <div id="welcomeScreen" class="screen welcome-screen">
+            <div class="welcome-content">
+                <h1 id="welcomeTitle">Snake It!</h1>
+                <img src="snake-logo.png" alt="Snake It logo" class="welcome-logo">
+            </div>
+
+            <div class="welcome-bottom">
+                <button id="getStartedButton">Get Started</button>
+                <p id="alreadyAccountText" class="account-text">I already have an account</p>
+            </div>
+        </div>
+
+        <!-- ÉCRAN 2 : CHOIX LANGUE -->
+        <div id="languageScreen" class="screen hidden">
+            <div class="simple-screen">
+                <div class="simple-top">
+                    <h2 id="languageTitle">Choose your language</h2>
+                    <p id="languageSubtitle">This will change the app interface and lesson texts.</p>
+                </div>
+
+                <div class="language-list">
+                    <button class="language-card" data-lang="fr" type="button">
+                        <span class="flag-svg" aria-hidden="true">
+                            <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="20" height="40" x="0" y="0" fill="#0055A4"/>
+                                <rect width="20" height="40" x="20" y="0" fill="#FFFFFF"/>
+                                <rect width="20" height="40" x="40" y="0" fill="#EF4135"/>
+                            </svg>
+                        </span>
+                        <span class="language-name">Français</span>
+                    </button>
+
+                    <button class="language-card" data-lang="en" type="button">
+                        <span class="flag-svg" aria-hidden="true">
+                            <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="60" height="40" fill="#012169"/>
+                                <path d="M0 0 L24 16 M60 0 L36 16 M0 40 L24 24 M60 40 L36 24" stroke="#FFFFFF" stroke-width="8"/>
+                                <path d="M0 0 L24 16 M60 0 L36 16 M0 40 L24 24 M60 40 L36 24" stroke="#C8102E" stroke-width="4"/>
+                                <rect x="24" width="12" height="40" fill="#FFFFFF"/>
+                                <rect y="14" width="60" height="12" fill="#FFFFFF"/>
+                                <rect x="26" width="8" height="40" fill="#C8102E"/>
+                                <rect y="16" width="60" height="8" fill="#C8102E"/>
+                            </svg>
+                        </span>
+                        <span class="language-name">English</span>
+                    </button>
+
+                    <button class="language-card" data-lang="de" type="button">
+                        <span class="flag-svg" aria-hidden="true">
+                            <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="60" height="13.33" y="0" fill="#000000"/>
+                                <rect width="60" height="13.33" y="13.33" fill="#DD0000"/>
+                                <rect width="60" height="13.34" y="26.66" fill="#FFCE00"/>
+                            </svg>
+                        </span>
+                        <span class="language-name">Deutsch</span>
+                    </button>
+                </div>
+
+                <div class="simple-bottom">
+                    <button id="continueAfterLanguage" class="primary-button" type="button" disabled>Continue</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ÉCRAN 3 : CRÉATION COMPTE -->
+        <div id="signupScreen" class="screen hidden">
+            <div class="simple-screen">
+                <div class="simple-top">
+                    <h2 id="signupTitle">Create your account</h2>
+                    <p id="signupSubtitle">Save your progress and continue later on another device.</p>
+                </div>
+
+                <form id="signupForm" class="signup-form">
+                    <label class="input-label" for="nameInput" id="labelName">Name</label>
+                    <input id="nameInput" type="text" placeholder="Your name" required>
+
+                    <label class="input-label" for="emailInput" id="labelEmail">Email</label>
+                    <input id="emailInput" type="email" placeholder="your@email.com" required>
+
+                    <label class="input-label" for="passwordInput" id="labelPassword">Password</label>
+                    <input id="passwordInput" type="password" placeholder="••••••••" required>
+
+                    <p id="signupInfo" class="signup-info">
+                        Prototype version: account data is only saved locally for now.
+                    </p>
+
+                    <button type="submit" id="createAccountButton" class="primary-button">
+                        Create account
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- ÉCRAN 4 : LOGIN -->
+        <div id="loginScreen" class="screen hidden">
+            <div class="simple-screen">
+                <div class="simple-top">
+                    <h2>Connexion</h2>
+                    <p>Connecte-toi pour reprendre ta progression.</p>
+                </div>
+
+                <form id="loginForm" class="signup-form">
+                    <label class="input-label" for="loginEmail">Email</label>
+                    <input id="loginEmail" type="email" placeholder="ton@email.com" required>
+
+                    <label class="input-label" for="loginPassword">Mot de passe</label>
+                    <input id="loginPassword" type="password" placeholder="••••••••" required>
+
+                    <button type="submit" class="primary-button">Se connecter</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- ÉCRAN 5 : JEU -->
+        <div id="gameScreen" class="screen game-screen hidden">
+            <canvas id="gameCanvas"></canvas>
+
+            <button id="startButton">START</button>
+
+            <div id="gameOverMessage" class="hidden">
+                <p id="gameOverText">Game Over</p>
+                <button id="restartButton" onclick="restartGame()">Rejouer</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
