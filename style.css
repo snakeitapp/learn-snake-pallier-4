@@ -1,0 +1,343 @@
+body {
+    margin: 0;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+
+    background: linear-gradient(to right, #0A2540, #2B0F54);
+
+    overflow: hidden;
+    position: relative;
+}
+
+/* =========================
+   CANVAS FOND ANIMÉ
+========================= */
+
+#bgCanvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    display: block;
+}
+
+/* =========================
+   TÉLÉPHONE
+========================= */
+
+.phone-play-area {
+    width: 320px;
+    height: 640px;
+
+    border-radius: 28px;
+
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+
+    background: rgba(255,255,255,0.02);
+    border: 2px solid rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(6px);
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,0.3),
+        inset 0 0 20px rgba(0,0,0,0.15);
+}
+
+.screen {
+    width: 100%;
+    height: 100%;
+}
+
+/* =========================
+   ACCUEIL
+========================= */
+
+.welcome-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 50px 24px 28px 24px;
+}
+
+.welcome-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.welcome-content h1 {
+    margin: 0;
+    color: white;
+    font-size: 42px;
+    line-height: 1.15;
+    font-weight: 700;
+}
+
+.welcome-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.account-text {
+    margin-top: 18px;
+    margin-bottom: 0;
+    color: rgba(255,255,255,0.8);
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.account-text:hover {
+    text-decoration: underline;
+}
+
+#welcomeTitle {
+    margin: 0;
+    color: white;
+    font-size: 58px;
+    line-height: 1.05;
+    font-weight: 700;
+}
+
+.welcome-logo {
+    position: absolute;
+    width: 220px;
+
+    top: 53%;
+    left: 64%;
+
+    transform: translate(-50%, -50%);
+}
+
+/* =========================
+   ÉCRANS SIMPLES
+========================= */
+
+.simple-screen {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 36px 22px 28px 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.simple-top h2 {
+    margin: 0 0 10px 0;
+    color: white;
+    font-size: 30px;
+    line-height: 1.15;
+}
+
+.simple-top p {
+    margin: 0;
+    color: rgba(255,255,255,0.75);
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.simple-bottom {
+    padding-top: 20px;
+}
+
+/* =========================
+   BOUTONS
+========================= */
+
+.primary-button,
+#getStartedButton {
+    width: 100%;
+    padding: 18px 20px;
+    border: none;
+    border-radius: 18px;
+    background: linear-gradient(to right,#FF8A00,#FF6A00);
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow:
+        0 10px 25px rgba(255,138,0,0.4),
+        inset 0 0 0 2px rgba(255,255,255,0.12);
+}
+
+.primary-button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* =========================
+   LISTE LANGUES
+========================= */
+
+.language-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 30px;
+    margin-bottom: auto;
+}
+
+.language-card {
+    width: 100%;
+    padding: 16px 18px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(255,255,255,0.07);
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.language-card.active {
+    border: 1px solid rgba(255,138,0,0.95);
+    box-shadow: 0 0 0 2px rgba(255,138,0,0.18);
+    background: rgba(255,138,0,0.10);
+}
+
+.flag-svg {
+    width: 40px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    background: rgba(255,255,255,0.08);
+}
+
+.flag-svg svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.language-name {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* =========================
+   FORMULAIRE
+========================= */
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 26px;
+    margin-bottom: auto;
+}
+
+.input-label {
+    color: rgba(255,255,255,0.92);
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+.signup-form input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.07);
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+
+.signup-form input::placeholder {
+    color: rgba(255,255,255,0.45);
+}
+
+.signup-form input:focus {
+    border-color: rgba(255,138,0,0.65);
+    box-shadow: 0 0 0 2px rgba(255,138,0,0.15);
+}
+
+.signup-info {
+    margin: 10px 0 8px 0;
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+/* =========================
+   ÉCRAN SNAKE
+========================= */
+
+.game-screen {
+    position: relative;
+}
+
+#gameCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: rgba(255,255,255,0.03);
+}
+
+#startButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 14px 28px;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 100;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 14px;
+    color: white;
+}
+
+#gameOverMessage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 200;
+    color: white;
+    font-size: 30px;
+}
+
+#gameOverMessage button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 12px;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
